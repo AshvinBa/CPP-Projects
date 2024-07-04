@@ -1,3 +1,5 @@
+
+
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -16,25 +18,26 @@ struct Book {
     Book(string t, string a, string i) : title(t), author(a), ISBN(i), isAvailable(true) {}
 };
 
-struct Borrower {
+struct Borrow{
     string name;
-    unordered_map<string, time_t> borrowedBooks; // ISBN -> due date
-};
+    unordered_map<string,time_t> borrowedBooks; 
+}
 
 vector<Book> books;
-unordered_map<string, Borrower> borrowers;
+unordered_map<string, Borrow> borrowers;
 const int finePerDay = 2; // Assume the fine is $2 per day overdue
 
 void addBook(const string& title, const string& author, const string& ISBN) {
     books.push_back(Book(title, author, ISBN));
 }
 
+
 void searchBook(const string& keyword) {
     for (const auto& book : books) {
         if (book.title.find(keyword) != string::npos || 
             book.author.find(keyword) != string::npos || 
             book.ISBN.find(keyword) != string::npos) {
-            cout << "Title: " << book.title << ", Author: " << book.author << ", ISBN: " << book.ISBN << ", Available: " << (book.isAvailable ? "Yes" : "No") << endl;
+            cout<<"\n" << "Title: " << book.title << ", Author: " << book.author << ", ISBN: " << book.ISBN << ", Available: " << (book.isAvailable ? "Yes" : "No") << endl;
         }
     }
 }
