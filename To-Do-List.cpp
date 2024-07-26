@@ -34,7 +34,7 @@ void viewTasks()
         cout << i + 1 << ". " << tasks[i].description
              << " [" << (tasks[i].isCompleted ? "Completed" : "Pending") << "]" << endl;
     }
-}
+}1
 
 void markTaskAsCompleted(int taskNumber) 
 {
